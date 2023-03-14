@@ -28,6 +28,12 @@ readonly class Index
         </head>
         <body>
         <h1>Hello world</h1>
+        <route path="/">
+            <counter></counter>
+        </route>
+        <defaultroute>
+            <h1>404</h1>
+        </defaultroute>
         </body>
         </html>
 		<?php

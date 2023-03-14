@@ -12,9 +12,13 @@ COPY composer.json composer.lock /var/www/
 WORKDIR /var/www
 RUN composer install
 
-COPY html src locales /var/www/
+COPY html /var/www/html
+COPY src /var/www/src
+COPY locales /var/www/locales
 
 RUN composer dump -o --apcu
+
+WORKDIR /var/www/html
 
 RUN mv $PHP_INI_DIR/php.ini-production $PHP_INI_DIR/php.ini && \
 	echo "opcache.jit_buffer_size=100M" >> $PHP_INI_DIR/php.ini

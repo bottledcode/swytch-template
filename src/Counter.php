@@ -23,13 +23,13 @@ readonly class Counter
 	#[Route(Method::POST, '/api/count/add')]
 	public function add(array $state, string $target_id): string
 	{
-		return $this->rerender($target_id, [...$state, 'count' => $state['count'] + 1]);
+		return $this->rerender($target_id, [...$state, 'count' => ($state['count'] ?? 0) + 1]);
 	}
 
 	#[Route(Method::POST, '/api/count/sub')]
 	public function sub(array $state, string $target_id): string
 	{
-		return $this->rerender($target_id, [...$state, 'count' => $state['count'] - 1]);
+		return $this->rerender($target_id, [...$state, 'count' => ($state['count'] ?? 0) - 1]);
 	}
 
 	public function render(int $count = 0)
@@ -39,8 +39,8 @@ readonly class Counter
         <div>
             <form hx-post="/api/count">
                 <h1>{<?= __('Current count:') ?>} {<?= $count ?>}</h1>
-                <button hx-post="/api/count/add">+</button>
-                <button hx-post="/api/count/sub">-</button>
+                <button type="submit" hx-post="/api/count/add"> + </button>
+                <button type="submit" hx-post="/api/count/sub"> - </button>
             </form>
         </div>
 		<?php
