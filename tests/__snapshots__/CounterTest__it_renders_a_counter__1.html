@@ -1,0 +1,15 @@
+<html><body>
+<div id="count" xmlns:swytch="file://../vendor/bottledcode/swytch-framework/swytch.xsd">
+            <!-- note: the fragment tag is NOT rendered in the client -->
+            
+                <form hx-post="/api/count">
+                    <input type="hidden" name="count" value="0">
+                    <h1>Current count: 0</h1>
+                    <button type="submit" hx-post="/api/count/add"> +</button>
+                    <button type="submit" hx-post="/api/count/sub"> -</button>
+                </form>
+            
+        </div>
+        
+
+</body></html>

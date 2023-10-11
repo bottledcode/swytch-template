@@ -8,10 +8,10 @@ To run the template, run the following commands:
 
 ```bash
 docker build -t swytch-template .
-docker run -p 8085:80 --rm swytch-template
+docker run -p 80:80 -p 443:443 --rm swytch-template
 ```
 
-Then, navigate to [http://localhost:8085](http://localhost:8085) in your browser.
+Then, navigate to [https://localhost](https://localhost) in your browser.
 
 ## Make it yours
 

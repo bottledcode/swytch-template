@@ -23,17 +23,18 @@ readonly class Index
 		$this->begin();
 		?>
         <!DOCTYPE html>
-        <html lang="{<?= $this->language->currentLanguage ?>}">
+        <html lang="{<?= $this->language->currentLanguage ?>}"
+              xmlns:swytch="file://../vendor/bottledcode/swytch-framework/swytch.xsd">
         <head>
         </head>
         <body>
         <h1>Hello world</h1>
-        <route path="/">
+        <swytch:route path="/" method="GET">
             <counter></counter>
-        </route>
-        <defaultroute>
+        </swytch:route>
+        <swytch:defaultRoute>
             <h1>404</h1>
-        </defaultroute>
+        </swytch:defaultRoute>
         </body>
         </html>
 		<?php
