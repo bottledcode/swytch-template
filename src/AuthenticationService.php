@@ -5,7 +5,7 @@ namespace Change\Me;
 use BackedEnum;
 use Bottledcode\SwytchFramework\Template\Interfaces\AuthenticationServiceInterface;
 
-class AuthenticationService implements AuthenticationServiceInterface
+readonly class AuthenticationService implements AuthenticationServiceInterface
 {
     /**
      * Replace this with code to validate the current request is authentic, such as validating a session or token.
