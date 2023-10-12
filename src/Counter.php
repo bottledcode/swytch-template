@@ -45,7 +45,7 @@ readonly class Counter
             <swytch:fragment id="count-form">
                 <form hx-post="/api/count">
                     <input type="hidden" name="count" value="<?= $count ?>">
-                    <h1>{<?= __('Current count:') ?>} {<?= $count ?>}</h1>
+                    <h1>{<?= n__('Current count:', 'Current count:', $count) ?>} {<?= $count ?>}</h1>
                     <button type="submit" hx-post="/api/count/add"> +</button>
                     <button type="submit" hx-post="/api/count/sub"> -</button>
                 </form>

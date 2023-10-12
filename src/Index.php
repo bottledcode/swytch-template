@@ -10,34 +10,34 @@ use Bottledcode\SwytchFramework\Template\Traits\RegularPHP;
 #[Component('index')]
 readonly class Index
 {
-	use RegularPHP;
+    use RegularPHP;
 
-	public function __construct(private LanguageAcceptor $language, private HeadTagFilter $htmlHead)
-	{
-	}
+    public function __construct(private LanguageAcceptor $language, private HeadTagFilter $htmlHead)
+    {
+    }
 
-	public function render()
-	{
-		$this->htmlHead->setTitle('Hello World');
+    public function render()
+    {
+        $this->htmlHead->setTitle(__('Hello World'));
 
-		$this->begin();
-		?>
+        $this->begin();
+        ?>
         <!DOCTYPE html>
         <html lang="{<?= $this->language->currentLanguage ?>}"
               xmlns:swytch="file://../vendor/bottledcode/swytch-framework/swytch.xsd">
         <head>
         </head>
         <body>
-        <h1>Hello world</h1>
+        <h1>{<?= __('Hello world') ?>}</h1>
         <swytch:route path="/" method="GET">
             <counter></counter>
         </swytch:route>
         <swytch:defaultRoute>
-            <h1>404</h1>
+            <h1>{<?= __('404') ?>}</h1>
         </swytch:defaultRoute>
         </body>
         </html>
-		<?php
-		return $this->end();
-	}
+        <?php
+        return $this->end();
+    }
 }
